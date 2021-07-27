@@ -4,3 +4,6 @@
 
 
 #fuck you mal
+
+#fuck the society 
+
