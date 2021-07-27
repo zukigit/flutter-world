@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sliverappbar/pages/home.dart';
+import 'package:tabbarwithdefaulttabcontroller/pages/home.dart';
 
 void main() {
   runApp(myApp());
@@ -10,9 +10,6 @@ class myApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: {'/': (context) => myHome()},
-    );
+    return MaterialApp(home: myHome());
   }
 }
