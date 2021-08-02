@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:popupmenu/data/menuItems.dart';
+import 'package:popupmenutesting/classes/menuItem.dart';
 
 void main() => runApp(myApp());
 
@@ -19,14 +19,14 @@ class myHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("PopUpMenu"),
+        title: Text("my popupmenu button"),
         actions: [
           PopupMenuButton<menuItem>(
-              onSelected: (item) => onPressFunction(context, item),
+              onSelected: (item) => item.onSelected(item),
               itemBuilder: (BuildContext context) => [
-                    ...menuItems.map(buildItem).toList(),
+                    ...firstMenu.map(buildItem).toList(),
                     PopupMenuDivider(),
-                    ...menuItems2.map(buildItem).toList()
+                    ...secMenu.map(buildItem).toList()
                   ])
         ],
       ),
@@ -39,15 +39,11 @@ PopupMenuItem<menuItem> buildItem(menuItem item) => PopupMenuItem<menuItem>(
       child: Row(
         children: [
           Icon(
-            item.menuIcon,
+            item.itemIcon,
             color: Colors.black,
           ),
           SizedBox(width: 10),
-          Text(item.menuVal)
+          Text(item.itemValue)
         ],
       ),
     );
-
-void onPressFunction(BuildContext, menuItem item) {
-  print(item.menuVal);
-}
